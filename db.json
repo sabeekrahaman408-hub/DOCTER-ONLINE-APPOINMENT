@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "name": "gautam",
+      "email": "gautam@gmail.com",
+      "password": "12345",
+      "id": "Z2uNdJCV0X8"
+    },
+    {
+      "name": "sabeek rahmaan",
+      "email": "sabeel@gmail.com",
+      "password": "12345",
+      "id": "bc5265316wI"
+    },
+    {
+      "name": "inyan",
+      "email": "inyan@gmail.com",
+      "password": "12345",
+      "id": "vipPZrvBDQU"
+    },
+    {
+      "name": "sabeek rahmaan",
+      "email": "sabeek@gmail.com",
+      "password": "12345",
+      "id": "UEE2509i_4o"
+    }
+  ],
+  "doctors": [],
+  "patients": [],
+  "appointments": [
+    {
+      "doctor": "Dr GOKUL",
+      "date": "2026-04-11",
+      "time": "12:45 pm - 01:00 pm",
+      "patientName": "sabeek",
+      "age": "21",
+      "contact": "7812824061",
+      "problem": "heart problem",
+      "email": "sabeel@gmail.com",
+      "id": "bNHNOBOCuyI"
+    },
+    {
+      "doctor": "Dr GAUTAM",
+      "date": "2026-04-19",
+      "time": "12:30 pm - 12:45 pm",
+      "patientName": "Sabeek",
+      "age": "21",
+      "contact": "7812824061",
+      "problem": "health issue",
+      "email": "sabeel@gmail.com",
+      "id": "zcMiPuOiyJg"
+    },
+    {
+      "doctor": "Dr MEENA",
+      "specialization": "General Physician",
+      "date": "2026-04-16",
+      "time": "12:15 pm - 12:30 pm",
+      "patientName": "sabeek",
+      "age": "21",
+      "contact": "7812824061",
+      "problem": "problem",
+      "email": "inyan@gmail.com",
+      "id": "nD9XF_B6e14"
+    },
+    {
+      "doctor": "Dr INYAN",
+      "specialization": "Neurologist",
+      "date": "2026-04-14",
+      "time": "12:15 pm - 12:30 pm",
+      "patientName": "sabeek rahmaan",
+      "age": "21",
+      "contact": "7812824061",
+      "problem": "problem issue",
+      "email": "inyan@gmail.com",
+      "id": "rFFi2_Zfvv4"
+    },
+    {
+      "doctor": "Dr INYAN",
+      "specialization": "Neurologist",
+      "date": "2026-04-09",
+      "time": "12:00 pm - 12:15 pm",
+      "patientName": "preveen",
+      "age": "21",
+      "contact": "85521479",
+      "problem": "health issue",
+      "email": "inyan@gmail.com",
+      "id": "kx-HuVYFEPQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
