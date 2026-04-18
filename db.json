@@ -1,31 +1,157 @@
 {
+  "admins": [
+    {
+      "id": "admin001",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "role": "admin",
+      "createdAt": "2026-04-19T00:00:00.000Z"
+    },
+    {
+      "name": "sabeek rahmaan",
+      "email": "sabeek@123",
+      "password": "123456",
+      "role": "admin",
+      "createdAt": "2026-04-18T18:38:21.200Z",
+      "id": "qN2rNa7hGpk"
+    },
+    {
+      "name": "gg",
+      "email": "gg@123",
+      "password": "gg@123456",
+      "role": "admin",
+      "createdAt": "2026-04-18T18:39:24.371Z",
+      "id": "mwza-29zOxw"
+    }
+  ],
   "users": [
     {
       "name": "gautam",
       "email": "gautam@gmail.com",
       "password": "12345",
+      "role": "patient",
       "id": "Z2uNdJCV0X8"
     },
     {
       "name": "sabeek rahmaan",
       "email": "sabeel@gmail.com",
       "password": "12345",
+      "role": "patient",
       "id": "bc5265316wI"
     },
     {
       "name": "inyan",
       "email": "inyan@gmail.com",
       "password": "12345",
+      "role": "patient",
       "id": "vipPZrvBDQU"
     },
     {
       "name": "sabeek rahmaan",
       "email": "sabeek@gmail.com",
       "password": "12345",
+      "role": "patient",
       "id": "UEE2509i_4o"
+    },
+    {
+      "name": "sabeek",
+      "email": "sabeek@123",
+      "password": "sabeek@123",
+      "id": "IwQLlpDf3nI"
+    },
+    {
+      "name": "kk",
+      "email": "kk@123",
+      "password": "kk@123456",
+      "role": "client",
+      "createdAt": "2026-04-18T18:42:14.472Z",
+      "id": "qbeWENINioo"
     }
   ],
-  "doctors": [],
+  "doctors": [
+    {
+      "id": "2",
+      "name": "Dr GAUTAM",
+      "specialization": "Dermatologist",
+      "experience": "7",
+      "fees": "400",
+      "location": "Chennai",
+      "image": "/img2.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Dr INYAN",
+      "specialization": "Neurologist",
+      "experience": "8",
+      "fees": "600",
+      "location": "Bangalore",
+      "image": "/img3.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Dr GOKUL",
+      "specialization": "Pediatrician",
+      "experience": "6",
+      "fees": "450",
+      "location": "Salem",
+      "image": "/img13.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Dr SABEEK",
+      "specialization": "Orthopedic",
+      "experience": "9",
+      "fees": "550",
+      "location": "Hosur",
+      "image": "/img12.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Dr RAMESH",
+      "specialization": "ENT Specialist",
+      "experience": "12",
+      "fees": "500",
+      "location": "Coimbatore",
+      "image": "/img22.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Dr PRIYA",
+      "specialization": "Gynecologist",
+      "experience": "11",
+      "fees": "650",
+      "location": "Chennai",
+      "image": "/img23.jpg"
+    },
+    {
+      "id": "8",
+      "name": "Dr ARJUN",
+      "specialization": "Psychiatrist",
+      "experience": "5",
+      "fees": "700",
+      "location": "Bangalore",
+      "image": "/img24.jpg"
+    },
+    {
+      "id": "9",
+      "name": "Dr KAVIN",
+      "specialization": "Dentist",
+      "experience": "4",
+      "fees": "350",
+      "location": "Hosur",
+      "image": "/img26.jpg"
+    },
+    {
+      "id": "10",
+      "name": "Dr SOPHIE",
+      "specialization": "General Physician",
+      "experience": "13",
+      "fees": "500",
+      "location": "Chennai",
+      "image": "/img27.jpg"
+    }
+  ],
   "patients": [],
   "appointments": [
     {

@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 type Appointment = {
   id: number
   doctor: string
+  specialization?: string
   date: string
   time: string
   patientName: string
@@ -13,11 +14,15 @@ type Appointment = {
   contact: string
   problem: string
   email: string
+  consultationFee?: number
+  paymentMethod?: string
+  paymentStatus?: string
 }
 
 export default function History() {
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [search, setSearch] = useState("")
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
@@ -30,9 +35,22 @@ export default function History() {
         return
       }
 
-      const res = await fetch(`http://localhost:5000/appointments?email=${user.email}`)
-      const data = await res.json()
-      setAppointments(data)
+      try {
+        const res = await fetch(`http://localhost:5000/appointments?email=${user.email}`)
+
+        if (!res.ok) {
+          setAppointments([])
+          setLoading(false)
+          return
+        }
+
+        const data = await res.json()
+        setAppointments(data)
+        setLoading(false)
+      } catch {
+        setAppointments([])
+        setLoading(false)
+      }
     }
 
     fetchAppointments()
@@ -44,22 +62,30 @@ export default function History() {
   )
 
   const deleteAppointment = async (id: number) => {
-    await fetch(`http://localhost:5000/appointments/${id}`, {
-      method: "DELETE",
-    })
+    try {
+      await fetch(`http://localhost:5000/appointments/${id}`, {
+        method: "DELETE",
+      })
 
-    const updated = appointments.filter((app) => app.id !== id)
-    setAppointments(updated)
+      const updated = appointments.filter((app) => app.id !== id)
+      setAppointments(updated)
+    } catch {
+      alert("Unable to delete appointment! Please start JSON server.")
+    }
   }
 
   const clearAll = async () => {
-    for (let app of appointments) {
-      await fetch(`http://localhost:5000/appointments/${app.id}`, {
-        method: "DELETE",
-      })
-    }
+    try {
+      for (let app of appointments) {
+        await fetch(`http://localhost:5000/appointments/${app.id}`, {
+          method: "DELETE",
+        })
+      }
 
-    setAppointments([])
+      setAppointments([])
+    } catch {
+      alert("Unable to clear history! Please start JSON server.")
+    }
   }
 
   return (
@@ -76,7 +102,9 @@ export default function History() {
         />
       </div>
 
-      {appointments.length > 0 && (
+      {loading ? (
+        <p className="no-data">Loading appointments...</p>
+      ) : appointments.length > 0 && (
         <div className="history-actions">
           <button className="clear-btn" onClick={clearAll}>
             Clear All History
@@ -84,7 +112,7 @@ export default function History() {
         </div>
       )}
 
-      {filtered.length === 0 ? (
+      {!loading && filtered.length === 0 ? (
         <p className="no-data">No appointments found.</p>
       ) : (
         <div className="history-grid">
@@ -93,6 +121,10 @@ export default function History() {
 
               <div className="history-row">
                 <span>👨‍⚕️ Doctor:</span> {app.doctor}
+              </div>
+
+              <div className="history-row">
+                <span>🏥 Specialization:</span> {app.specialization || "N/A"}
               </div>
 
               <div className="history-row">
@@ -117,6 +149,18 @@ export default function History() {
 
               <div className="history-row">
                 <span>🩺 Problem:</span> {app.problem}
+              </div>
+
+              <div className="history-row">
+                <span>💰 Fee:</span> ₹{app.consultationFee || 0}
+              </div>
+
+              <div className="history-row">
+                <span>💳 Payment:</span> {app.paymentMethod || "N/A"}
+              </div>
+
+              <div className="history-row">
+                <span>✅ Status:</span> {app.paymentStatus || "Pending"}
               </div>
 
               <button
