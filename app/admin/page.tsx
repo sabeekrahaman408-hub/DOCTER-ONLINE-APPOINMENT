@@ -270,7 +270,7 @@ export default function AdminPage() {
                 </div>
                 <div className="stat-content">
                   <h3>Today's Revenue</h3>
-                  <p>Rs 2,340 from 8 payments</p>
+                  <p>$2,340 from 8 payments</p>
                 </div>
               </div>
               <div className="stat-card">
