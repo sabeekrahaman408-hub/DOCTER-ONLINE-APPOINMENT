@@ -69,7 +69,7 @@ export default function AdminPage() {
 
   const fetchDoctors = async () => {
     try {
-      const res = await fetch("http://localhost:5000/doctors")
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctors`)
       const data = await res.json()
       setDoctors(data.map((doc: Doctor) => ({
         ...doc,
@@ -83,7 +83,7 @@ export default function AdminPage() {
 
   const fetchAppointments = async () => {
     try {
-      const res = await fetch("http://localhost:5000/appointments")
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments`)
       const data = await res.json()
       setAppointments(data.map((apt: Appointment) => ({
         ...apt,
@@ -112,7 +112,7 @@ export default function AdminPage() {
     }
 
     try {
-      await fetch("http://localhost:5000/doctors", {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctors`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newDoctor),
@@ -136,7 +136,7 @@ export default function AdminPage() {
     if (!confirm("Are you sure you want to delete this doctor?")) return
     
     try {
-      await fetch(`http://localhost:5000/doctors/${id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/doctors/${id}`, {
         method: "DELETE",
       })
       alert("Doctor Deleted Successfully!")
@@ -150,7 +150,7 @@ export default function AdminPage() {
     if (!confirm("Are you sure you want to delete this appointment?")) return
     
     try {
-      await fetch(`http://localhost:5000/appointments/${id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/${id}`, {
         method: "DELETE",
       })
       alert("Appointment Deleted Successfully!")

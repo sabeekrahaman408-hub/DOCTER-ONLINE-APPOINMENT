@@ -44,9 +44,9 @@ export default function Register() {
       let checkRes, checkData
       
       if (role === 'admin') {
-        checkRes = await fetch(`http://localhost:5000/admins?email=${trimmedEmail}`)
+        checkRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admins?email=${trimmedEmail}`)
       } else {
-        checkRes = await fetch(`http://localhost:5000/users?email=${trimmedEmail}`)
+        checkRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users?email=${trimmedEmail}`)
       }
       
       checkData = await checkRes.json()
@@ -68,13 +68,13 @@ export default function Register() {
       // Store in appropriate collection
       let res
       if (role === 'admin') {
-        res = await fetch("http://localhost:5000/admins", {
+        res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admins`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newUser),
         })
       } else {
-        res = await fetch("http://localhost:5000/users", {
+        res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newUser),

@@ -29,9 +29,9 @@ export default function Login() {
       let res, data
       
       if (role === 'admin') {
-        res = await fetch(`http://localhost:5000/admins?email=${trimmedEmail}`)
+        res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admins?email=${trimmedEmail}`)
       } else {
-        res = await fetch(`http://localhost:5000/users?email=${trimmedEmail}`)
+        res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users?email=${trimmedEmail}`)
       }
 
       data = await res.json()

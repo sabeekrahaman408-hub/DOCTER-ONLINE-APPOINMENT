@@ -36,7 +36,7 @@ export default function History() {
       }
 
       try {
-        const res = await fetch(`http://localhost:5000/appointments?email=${user.email}`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments?email=${user.email}`)
 
         if (!res.ok) {
           setAppointments([])
@@ -63,7 +63,7 @@ export default function History() {
 
   const deleteAppointment = async (id: number) => {
     try {
-      await fetch(`http://localhost:5000/appointments/${id}`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/${id}`, {
         method: "DELETE",
       })
 
@@ -77,7 +77,7 @@ export default function History() {
   const clearAll = async () => {
     try {
       for (let app of appointments) {
-        await fetch(`http://localhost:5000/appointments/${app.id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/${app.id}`, {
           method: "DELETE",
         })
       }

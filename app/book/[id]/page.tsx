@@ -174,7 +174,7 @@ export default function Book() {
     try {
       const todayDate = new Date().toISOString().split("T")[0]
 
-      const res = await fetch("http://localhost:5000/appointments")
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments`)
       const allAppointments = await res.json()
 
       // Slot check
@@ -199,13 +199,13 @@ export default function Book() {
       )
 
       for (let old of oldAppointments) {
-        await fetch(`http://localhost:5000/appointments/${old.id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/${old.id}`, {
           method: "DELETE",
         })
       }
 
       // Add new appointment
-      await fetch("http://localhost:5000/appointments", {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newAppointment),
