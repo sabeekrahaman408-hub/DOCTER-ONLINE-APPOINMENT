@@ -393,7 +393,7 @@ export default function Book() {
 
                     {/* 🔥 Add QR Image in public folder */}
                     <img
-                      src="/upi-qr.png"
+                      src="/image.png"
                       alt="UPI QR"
                       style={{
                         width: "180px",
